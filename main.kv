@@ -1,0 +1,66 @@
+# Filename: hangman.kv
+
+<HangmanGame>:
+    orientation: 'vertical'
+
+    # Replay Button
+    Button:
+        text: "Replay"
+        on_press: root.replay_game()
+        size_hint: None, None
+        size: 120, 60
+        pos_hint: {'center_x': 0.1, 'center_y': 0.1}
+        disabled: True  # Initially disabled
+
+    # Hangman Image
+    Image:
+        source: 'hangman0.png'
+        size_hint_y: None
+        height: 480
+
+    # Word Label
+    Label:
+        text: root.display_word()
+        font_size: '64sp'
+        color: 1, 0, 0, 1
+        font_name: 'christmaseve'
+        halign: 'center'
+        valign: 'middle'
+        pos_hint: {'center_y': 0.3}
+
+    # Letters Layout
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+        size_hint_y: None
+        height: 400
+        pos_hint: {'center_x': 0.55}
+
+        # Letter Rows
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+            size_hint: None, None
+            height: 180
+            # Letter Buttons
+            Button:
+                text: 'A'
+                on_press: root.guess_letter(self)
+                size_hint: None, None
+                size: 120, 120
+                font_size: '48sp'
+                font_name: 'christmaseve'
+                background_color: 1, 0, 0, 1
+                color: 1, 0.84, 0, 1
+            Button:
+                text: 'B'
+                on_press: root.guess_letter(self)
+                size_hint: None, None
+                size: 120, 120
+                font_size: '48sp'
+                font_name: 'christmaseve'
+                background_color: 1, 0, 0, 1
+                color: 1, 0.84, 0, 1
+            # ... Repeat for other letters
+
+# Additional styling and adjustments can be made based on your preferences.
